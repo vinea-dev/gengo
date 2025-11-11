@@ -71,7 +71,9 @@ func (x *EchoRequest) GetId() string {
 type EchoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// message.
-	Message       string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	// code .
+	Code          int32 `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -113,15 +115,23 @@ func (x *EchoResponse) GetMessage() string {
 	return ""
 }
 
+func (x *EchoResponse) GetCode() int32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
 var File_foobar_v1alpha1_foobar_proto protoreflect.FileDescriptor
 
 const file_foobar_v1alpha1_foobar_proto_rawDesc = "" +
 	"\n" +
 	"\x1cfoobar/v1alpha1/foobar.proto\x12\x0ffoobar.v1alpha1\"\x1d\n" +
 	"\vEchoRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"(\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"<\n" +
 	"\fEchoResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2R\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\x12\x12\n" +
+	"\x04code\x18\x02 \x01(\x05R\x04code2R\n" +
 	"\tFoobarAPI\x12E\n" +
 	"\x04Echo\x12\x1c.foobar.v1alpha1.EchoRequest\x1a\x1d.foobar.v1alpha1.EchoResponse\"\x00B5P\x01Z1github.com/vinea-dev/gengo/foobar/v1alpha1;foobarb\x06proto3"
 
