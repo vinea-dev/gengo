@@ -69,7 +69,9 @@ func (x *EchoRequest) GetId() string {
 
 // EchoRequest
 type EchoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// message.
+	Message       string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -104,14 +106,22 @@ func (*EchoResponse) Descriptor() ([]byte, []int) {
 	return file_foobar_v1alpha1_foobar_proto_rawDescGZIP(), []int{1}
 }
 
+func (x *EchoResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_foobar_v1alpha1_foobar_proto protoreflect.FileDescriptor
 
 const file_foobar_v1alpha1_foobar_proto_rawDesc = "" +
 	"\n" +
 	"\x1cfoobar/v1alpha1/foobar.proto\x12\x0ffoobar.v1alpha1\"\x1d\n" +
 	"\vEchoRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\x0e\n" +
-	"\fEchoResponse2R\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"(\n" +
+	"\fEchoResponse\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage2R\n" +
 	"\tFoobarAPI\x12E\n" +
 	"\x04Echo\x12\x1c.foobar.v1alpha1.EchoRequest\x1a\x1d.foobar.v1alpha1.EchoResponse\"\x00B5P\x01Z1github.com/vinea-dev/gengo/foobar/v1alpha1;foobarb\x06proto3"
 
