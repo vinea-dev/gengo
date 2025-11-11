@@ -3,6 +3,7 @@ module github.com/vinea-dev/gengo
 go 1.25.1
 
 require (
+	connectrpc.com/connect v1.19.1
 	google.golang.org/grpc v1.64.1
 	google.golang.org/protobuf v1.36.10
 )
