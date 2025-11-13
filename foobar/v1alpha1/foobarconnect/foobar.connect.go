@@ -39,7 +39,8 @@ const (
 
 // FoobarAPIClient is a client for the foobar.v1alpha1.FoobarAPI service.
 type FoobarAPIClient interface {
-	// comments.
+	// Echo is a simple RPC that echoes the request ID in the response,
+	// along with a message.
 	Echo(context.Context, *connect.Request[v1alpha1.EchoRequest]) (*connect.Response[v1alpha1.EchoResponse], error)
 }
 
@@ -75,7 +76,8 @@ func (c *foobarAPIClient) Echo(ctx context.Context, req *connect.Request[v1alpha
 
 // FoobarAPIHandler is an implementation of the foobar.v1alpha1.FoobarAPI service.
 type FoobarAPIHandler interface {
-	// comments.
+	// Echo is a simple RPC that echoes the request ID in the response,
+	// along with a message.
 	Echo(context.Context, *connect.Request[v1alpha1.EchoRequest]) (*connect.Response[v1alpha1.EchoResponse], error)
 }
 

@@ -26,9 +26,10 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// FoobarAPI
+// FoobarAPI is a simple example service.
 type FoobarAPIClient interface {
-	// comments.
+	// Echo is a simple RPC that echoes the request ID in the response,
+	// along with a message.
 	Echo(ctx context.Context, in *EchoRequest, opts ...grpc.CallOption) (*EchoResponse, error)
 }
 
@@ -54,9 +55,10 @@ func (c *foobarAPIClient) Echo(ctx context.Context, in *EchoRequest, opts ...grp
 // All implementations should embed UnimplementedFoobarAPIServer
 // for forward compatibility.
 //
-// FoobarAPI
+// FoobarAPI is a simple example service.
 type FoobarAPIServer interface {
-	// comments.
+	// Echo is a simple RPC that echoes the request ID in the response,
+	// along with a message.
 	Echo(context.Context, *EchoRequest) (*EchoResponse, error)
 }
 

@@ -21,10 +21,10 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// EchoRequest
+// EchoRequest is the request message for the Echo RPC.
 type EchoRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// request id
+	// id is the unique identifier for the request.
 	Id            string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -67,11 +67,13 @@ func (x *EchoRequest) GetId() string {
 	return ""
 }
 
-// EchoRequest
+// EchoResponse is the response message for the Echo RPC.
 type EchoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// response id
-	Id            string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// id is the identifier from the request.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// message is a response message.
+	Message       string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -113,15 +115,23 @@ func (x *EchoResponse) GetId() string {
 	return ""
 }
 
+func (x *EchoResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_foobar_v1alpha1_foobar_proto protoreflect.FileDescriptor
 
 const file_foobar_v1alpha1_foobar_proto_rawDesc = "" +
 	"\n" +
 	"\x1cfoobar/v1alpha1/foobar.proto\x12\x0ffoobar.v1alpha1\"\x1d\n" +
 	"\vEchoRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\x1e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"8\n" +
 	"\fEchoResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id2R\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage2R\n" +
 	"\tFoobarAPI\x12E\n" +
 	"\x04Echo\x12\x1c.foobar.v1alpha1.EchoRequest\x1a\x1d.foobar.v1alpha1.EchoResponse\"\x00B5P\x01Z1github.com/vinea-dev/gengo/foobar/v1alpha1;foobarb\x06proto3"
 
